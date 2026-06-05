@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StrategyRouteImport } from './routes/strategy'
+import { Route as PackRouteImport } from './routes/pack'
+import { Route as LocalRouteImport } from './routes/local'
+import { Route as LinkingRouteImport } from './routes/linking'
+import { Route as KeywordsRouteImport } from './routes/keywords'
+import { Route as ClustersRouteImport } from './routes/clusters'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StrategyRoute = StrategyRouteImport.update({
+  id: '/strategy',
+  path: '/strategy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackRoute = PackRouteImport.update({
+  id: '/pack',
+  path: '/pack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocalRoute = LocalRouteImport.update({
+  id: '/local',
+  path: '/local',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkingRoute = LinkingRouteImport.update({
+  id: '/linking',
+  path: '/linking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeywordsRoute = KeywordsRouteImport.update({
+  id: '/keywords',
+  path: '/keywords',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClustersRoute = ClustersRouteImport.update({
+  id: '/clusters',
+  path: '/clusters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/clusters': typeof ClustersRoute
+  '/keywords': typeof KeywordsRoute
+  '/linking': typeof LinkingRoute
+  '/local': typeof LocalRoute
+  '/pack': typeof PackRoute
+  '/strategy': typeof StrategyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/clusters': typeof ClustersRoute
+  '/keywords': typeof KeywordsRoute
+  '/linking': typeof LinkingRoute
+  '/local': typeof LocalRoute
+  '/pack': typeof PackRoute
+  '/strategy': typeof StrategyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/clusters': typeof ClustersRoute
+  '/keywords': typeof KeywordsRoute
+  '/linking': typeof LinkingRoute
+  '/local': typeof LocalRoute
+  '/pack': typeof PackRoute
+  '/strategy': typeof StrategyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/clusters'
+    | '/keywords'
+    | '/linking'
+    | '/local'
+    | '/pack'
+    | '/strategy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog'
+    | '/clusters'
+    | '/keywords'
+    | '/linking'
+    | '/local'
+    | '/pack'
+    | '/strategy'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/clusters'
+    | '/keywords'
+    | '/linking'
+    | '/local'
+    | '/pack'
+    | '/strategy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
+  ClustersRoute: typeof ClustersRoute
+  KeywordsRoute: typeof KeywordsRoute
+  LinkingRoute: typeof LinkingRoute
+  LocalRoute: typeof LocalRoute
+  PackRoute: typeof PackRoute
+  StrategyRoute: typeof StrategyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/strategy': {
+      id: '/strategy'
+      path: '/strategy'
+      fullPath: '/strategy'
+      preLoaderRoute: typeof StrategyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pack': {
+      id: '/pack'
+      path: '/pack'
+      fullPath: '/pack'
+      preLoaderRoute: typeof PackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/local': {
+      id: '/local'
+      path: '/local'
+      fullPath: '/local'
+      preLoaderRoute: typeof LocalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linking': {
+      id: '/linking'
+      path: '/linking'
+      fullPath: '/linking'
+      preLoaderRoute: typeof LinkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/keywords': {
+      id: '/keywords'
+      path: '/keywords'
+      fullPath: '/keywords'
+      preLoaderRoute: typeof KeywordsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clusters': {
+      id: '/clusters'
+      path: '/clusters'
+      fullPath: '/clusters'
+      preLoaderRoute: typeof ClustersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +197,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
+  ClustersRoute: ClustersRoute,
+  KeywordsRoute: KeywordsRoute,
+  LinkingRoute: LinkingRoute,
+  LocalRoute: LocalRoute,
+  PackRoute: PackRoute,
+  StrategyRoute: StrategyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
