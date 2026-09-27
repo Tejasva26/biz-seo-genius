@@ -102,7 +102,7 @@ biz-seo-genius/
 ├── src/
 │   ├── routes/        # TanStack Router file-based routes
 │   ├── components/    # Reusable UI components
-│   └── styles/        # Global styles
+│   └── styles.css     # Global styles
 ├── vite.config.ts     # Vite + Nitro config
 ├── package.json
 └── tsconfig.json
