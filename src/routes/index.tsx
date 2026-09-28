@@ -36,6 +36,7 @@ function Dashboard() {
     { to: "/clusters", icon: Network, title: "Content Clusters", desc: "1 pillar + 10 supporting articles." },
     { to: "/linking", icon: Link2, title: "Internal Linking", desc: "Anchor text + linking reasons." },
     { to: "/local", icon: MapPin, title: "Local SEO", desc: "City + service landing copy & FAQs." },
+    { to: "/analysis", icon: Search, title: "SEO Analysis", desc: "Audit settings, goals, and keyword context." },
     { to: "/strategy", icon: CalendarDays, title: "Content Strategy", desc: "30-day prioritized calendar." },
   ];
 

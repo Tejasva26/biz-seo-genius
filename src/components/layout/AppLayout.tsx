@@ -24,6 +24,7 @@ const nav = [
   { to: "/clusters", label: "Content Clusters", icon: Network },
   { to: "/linking", label: "Internal Linking", icon: Link2 },
   { to: "/local", label: "Local SEO", icon: MapPin },
+  { to: "/analysis", label: "SEO Analysis", icon: Search },
   { to: "/strategy", label: "Content Strategy", icon: CalendarDays },
   { to: "/pack", label: "SEO Blog Pack", icon: Package },
 ];
