@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -60,12 +60,8 @@ export function saveSeoAnalysisSettings(settings: SeoAnalysisSettings) {
 }
 
 export function AnalysisSettingsForm() {
-  const [settings, setSettings] = useState<SeoAnalysisSettings>(defaultSeoAnalysisSettings);
+  const [settings, setSettings] = useState<SeoAnalysisSettings>(() => readSeoAnalysisSettings());
   const [saved, setSaved] = useState(false);
-
-  useEffect(() => {
-    setSettings(readSeoAnalysisSettings());
-  }, []);
 
   const updateField = <K extends keyof SeoAnalysisSettings>(key: K, value: SeoAnalysisSettings[K]) => {
     setSettings((current) => ({ ...current, [key]: value }));
