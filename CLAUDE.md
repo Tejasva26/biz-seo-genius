@@ -46,3 +46,8 @@ Examples:
 - `fix: resolve content generation error`
 - `docs: improve project documentation`
 - `chore: update project configuration`
+## Project-Specific Rules
+
+- Persisted state must initialize from the persistence layer when a component loads, rather than relying only on a post-render `useEffect`.
+- Saved forms must be tested with the full flow: save the settings, refresh the page, and verify that the saved values are restored in the UI.
+- AI-generated changes must be verified with `npm run build` before committing.
